@@ -132,6 +132,10 @@ function zipBuffer(rootDir, options, callback) {
 					options.each(fullPath);
 				}
 				folders[fullPath] = parentZip.folder(file);
+				folders[fullPath].files[fullPath.replace(folders.rootDir + '/', "") + '/'].unixPermissions = stat.mode;
+				folders[fullPath].files[fullPath.replace(folders.rootDir + '/', "") + '/'].options.unixPermissions = stat.mode;
+				folders[fullPath].files[fullPath.replace(folders.rootDir + '/', "") + '/'].dosPermissions = stat.mode;
+				folders[fullPath].files[fullPath.replace(folders.rootDir + '/', "") + '/'].options.dosPermissions = stat.mode;
 				dive(fullPath, cb);
 			} else {
 				fileQueue.push({fullPath: fullPath, dir: dir, file: file, mode: stat.mode}, cb);
