@@ -1,5 +1,5 @@
 {
-  "name": "zip-dir",
+  "name": "@arf/zip-dir",
   "version": "1.2.0",
   "description": "Zips up directories into buffers or saves zipped files to disk",
   "main": "index.js",
